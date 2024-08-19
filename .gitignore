@@ -1,6 +1,7 @@
 # VS Code
 .vscode/
-,history/
+.history
+.history/
 .trunk
 
 # Byte-compiled / optimized / DLL files

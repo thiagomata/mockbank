@@ -21,13 +21,6 @@ The system is composed of four main layers:
 
 ### Features
 
-The consuming system should be able to:
-
-- [Get Real-Time Account Current Balance](get-real-time-account-current-balance)
-- [Get Real-Time Account Available](get-real-time-account-available)
-- [Get Account Available from Transaction DB](get-account-available-from-transaction-db)
-- [Get Account Current Balance from Transaction DB](get-account-current-balance-from-transaction-db)
-
 #### Get Real-Time Account Current Balance
 
 The system should be able to provide the real-time account current balance.
@@ -174,6 +167,6 @@ sequenceDiagram
     Kafka->>Data Processing: Update today's sum of transactions +100
     Kafka->>Data Processing: Update today's sum of transactions -50
     Data Processing->>Data Processing: Sum of transactions = 700 + 100 - 50 = 750
-    Data Processing->>Data Processing: Account 123 has changed and is idle
+    Data Processing->>Data Processing: Account 123 has changed and is idle for 1 minute
     Data Processing->>Storage:Account Balance 123 = 1000 + 750 = 1750
 ```
