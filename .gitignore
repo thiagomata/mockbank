@@ -1,3 +1,8 @@
+# VS Code
+.vscode/
+,history/
+.trunk
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
