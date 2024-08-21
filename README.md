@@ -474,7 +474,7 @@ sequenceDiagram
     Kafka->>Data Processing: Set Balance Account 123 EOD = 1000
     Data Processing->>Storage:Balance Account 123 = 1000
     Data Processing->>+Data Sourcing:Get Facility Limit for Facility 456
-    Data Sourcing->>-Data Processing:Facility Limit for Facility 456 = 5000
+    Data Sourcing-->>-Data Processing:Facility Limit for Facility 456 = 5000
     Data Processing->>Data Processing:Save Facility 456 = 5000
     Data Processing->>Storage:Account Available 123 = 6000
     Data Sourcing->>Data Wrangling:Change Data Capture
@@ -493,7 +493,7 @@ sequenceDiagram
     Kafka->>Data Processing: Set Balance Account 123 EOD = 2000
     Data Processing->>Storage:Balance Account 123 = 2000 + 1150 = 2150
     Data Processing->>+Data Sourcing:Get Facility Limit for Facility 456
-    Data Sourcing->>-Data Processing:Facility Limit for Facility 456 = 5000
+    Data Sourcing-->>-Data Processing:Facility Limit for Facility 456 = 5000
     Data Processing->>Data Processing:Save Facility 456 = 5000
     Data Processing->>Storage:Account Available 123 = 5000 + 2000 + 150 = 7150
 
@@ -530,6 +530,7 @@ sequenceDiagram
     participant Storage
     Data Wrangling->>Kafka: Set Balance Account 123 EOD = 1000
     Kafka->>Data Processing: Set Balance Account 123 EOD = 1000
+    Data Processing->>Data Processing: Account 123 has changed and is idle for 1 minute
     Data Processing->>Storage:Account Balance 123 = 1000
     Data Wrangling->>Kafka:Account 123 Transaction +100
     Data Wrangling->>Kafka:Account 123 Transaction +100
